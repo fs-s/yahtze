@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="dice.css">
     <title>Document</title>
 </head>
-
 <body>
-    <script src="dice.js"></script>
-    <div class="dices">
-        <div id="die1" class="dice">0</div>
-        <div id="die2" class="dice">0</div>
-        <div id="die3" class="dice">0</div>
-        <div id="die4" class="dice">0</div>
-        <div id="die5" class="dice">0</div>
-        <button onclick="rolldice()">roll</button>
+    <div id="roll-dice">
+        <button id="roll" onclick="roll()">Roll Dices</button>
+        <span id="roll-result"></span>
     </div>
-    <h2 id="status" style="clear:left;"></h2>
+    <div class="dice-container">
+        <img class="dice1">
+        <img class="dice2">
+        <img class="dice3">
+        <img class="dice4">
+        <img class="dice5">
+    </div>
+<script src="dice.js"></script>
 </body>
-
 </html>

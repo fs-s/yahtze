@@ -1,23 +1,15 @@
-function rolldice() {
-    var die1 = document.getElementById("die1")
-    var die2 = document.getElementById("die2")
-    var die3 = document.getElementById("die3")
-    var die4 = document.getElementById("die4")
-    var die5 = document.getElementById("die5")
-    var status = document.getElementById("status")
-    var d1 = Math.floor(Math.random() * 6) + 1;
-    var d2 = Math.floor(Math.random() * 6) + 1;
-    var d3 = Math.floor(Math.random() * 6) + 1;
-    var d4 = Math.floor(Math.random() * 6) + 1;
-    var d5 = Math.floor(Math.random() * 6) + 1;
-    var diceTotal = d1 + d2 + d3 + d4 + d5;
-    die1.innerHTML = d1;
-    die2.innerHTML = d2;
-    die3.innerHTML = d3;
-    die4.innerHTML = d4;
-    die5.innerHTML = d5;
-    status.innerHTML = "you rolled " + diceTotal + ".";
-    if (d1 == d2 == d3 == d4 == d5) {
-        status.innerHTML += " Yahtzee!!!!"
-    }
+function roll() {
+    const rng1 = Math.floor(Math.random() * 6) + 1
+    document.querySelector(".dice1").setAttribute("src", rng1 + ".png");
+    const rng2 = Math.floor(Math.random() * 6) + 1
+    document.querySelector(".dice2").setAttribute("src", rng2 + ".png");
+    const rng3 = Math.floor(Math.random() * 6) + 1
+    document.querySelector(".dice3").setAttribute("src", rng3 + ".png");
+    const rng4 = Math.floor(Math.random() * 6) + 1
+    document.querySelector(".dice4").setAttribute("src", rng4 + ".png");
+    const rng5 = Math.floor(Math.random() * 6) + 1
+    document.querySelector(".dice5").setAttribute("src", rng5 + ".png");
+}
+function selectDice() {
+    document.getElementById("dice1").innerhtml = 'pede';
 }
