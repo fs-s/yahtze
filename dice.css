@@ -1,0 +1,15 @@
+div.dice {
+    float: left;
+    width: 32px;
+    background:#5f5f5f;
+    border:#999 1px solid;
+    padding: 10px;
+    font-size: 10px;
+    text-align: center;
+    margin: 5px;
+}
+
+.dices {
+ display: flex;
+ justify-content: center;
+}

@@ -1,6 +1,23 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
   }
+
+  .dices {
+      display: flex;
+      justify-content: center;
+  }
+
+  div.dice {
+    float: left;
+    width: 32px;
+    background:#ffffff;
+    border:#999 1px solid;
+    padding: 10px;
+    font-size: 10px;
+    text-align: center;
+    margin: 5px;
+}
+
   .clearfix:after {
        visibility: hidden;
        display: block;

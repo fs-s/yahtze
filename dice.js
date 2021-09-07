@@ -17,7 +17,7 @@ function rolldice() {
     die4.innerHTML = d4;
     die5.innerHTML = d5;
     status.innerHTML = "you rolled " + diceTotal + ".";
-    if (true) {
-        status.innerHTML += "   Yahtzee!!!!"
+    if (d1 == d2 == d3 == d4 == d5) {
+        status.innerHTML += " Yahtzee!!!!"
     }
 }
