@@ -35,3 +35,41 @@ function roll() {
     const rng5 = Math.floor(Math.random() * 6) + 1
     document.querySelector(".dice5").setAttribute("src", rng5 + ".png");
 }
+
+let diceData = [
+    {
+        value: undefined,
+        status: 'active'
+    },
+    {
+        value: undefined,
+        status: 'active'
+    },
+    {
+        value: undefined,
+        status: 'active'
+    },
+    {
+        value: undefined,
+        status: 'active'
+    },
+    {
+        value: undefined,
+        status: 'active'
+    },
+
+]
+
+
+const diceDivs = document.querySelectorAll('.dice');
+
+diceDivs.forEach( (dice) => {
+    if (dice.dataset.status == 'active') {
+        dice.dataset.status == 'locked';
+        diceData[dice.dataset.index].status ='active'
+    } else {
+        dice.dataset.status = 'active';
+        diceData[dice.dataset.index] = 'active';
+    }
+    console.log(diceData)
+});
