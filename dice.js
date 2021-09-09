@@ -1,3 +1,28 @@
+var turns = 4;
+
+
+$('#roll').click(function () {
+    var cubes = $('.diceid:not(.held)');
+    cubes.each(function () {
+        roll($(this));
+    });
+    turns--;
+
+    $('#turns').text(turns);
+
+    if (turns === 0) {
+        $(this).unbind('click');
+        $(this).attr('disabled', 'disabled');
+    }
+});
+turns--;
+
+$('#turns').text(turns);
+
+if (turns === 0) {
+    $(this).unbind('click');
+    $(this).attr('disabled', 'disabled');
+};
 function roll() {
     const rng1 = Math.floor(Math.random() * 6) + 1
     document.querySelector(".dice1").setAttribute("src", rng1 + ".png");
@@ -9,7 +34,4 @@ function roll() {
     document.querySelector(".dice4").setAttribute("src", rng4 + ".png");
     const rng5 = Math.floor(Math.random() * 6) + 1
     document.querySelector(".dice5").setAttribute("src", rng5 + ".png");
-}
-function selectDice() {
-    document.getElementById("dice1").innerhtml = 'pede';
 }
