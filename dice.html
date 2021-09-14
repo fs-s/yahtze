@@ -15,14 +15,14 @@
 
         <span id="roll-result"></span>
     </div>
-    <div class="dice-container">
-        <img class="dice1">
-        <img class="dice2">
-        <img class="dice3">
-        <img class="dice4">
-        <img class="dice5">
+    <div id="dice-container">
+        <div class="dice" id="" data-status="active" data-index="0">4</div>
+        <div class="dice" id="" data-status="active" data-index="1">4</div>
+        <div class="dice" id="" data-status="active" data-index="2">4</div>
+        <div class="dice" id="" data-status="active" data-index="3">4</div>
+        <div class="dice" id="" data-status="active" data-index="4">4</div>
     </div>
-    <div class="container">
+    <!-- <div class="container">
         <div class="score">
             <input type="radio" id="1" name="score" value="ones"><label for="ones">ones</label><br>
             <input type="radio" id="2" name="score" value="tows"><label for="tows">tows</label><br>
@@ -38,7 +38,7 @@
             <input type="radio" id="12" name="score" value="yaht"><label for="yaht">yahtzee</label><br>
             <input type="radio" id="13" name="score" value="total"><label for="total">total</label><br>
         </div>
-        <button class="submit" id="submit">submit</button>
+        <button class="submit" id="submit">submit</button> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="dice.js"></script>
 </body>
