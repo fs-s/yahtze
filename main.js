@@ -33,7 +33,7 @@ let diceData= [
 
 diceDivs.forEach((dice) => {
     dice.addEventListener('click', () =>{
-        if (count > 4){
+        if (count > 0){
             if (dice.dataset.status == 'active'){
                 dice.dataset.status = 'locked';
                 diceData[dice.dataset.index].status = 'locked';
@@ -68,7 +68,7 @@ scoretd.forEach((score) => {
 })
 rollBTN.addEventListener('click', () => {
     count++;
-    if (count < 3){
+    if (count < 4){
         diceDivs.forEach((dice) => {
             if (dice.dataset.status == 'active'){
                 let randomNR = Math.floor(Math.random() * 6) + 1
