@@ -1,41 +1,35 @@
-* {
-    padding: 0px;
-    margin: 0px;
-    box-sizing: border-box;
-    font-family: 'ZCOOL KuaiLe', cursive;
-    font-size: x-large;
-}
-.heading{
-    text-align: center;
-    font-size: xx-large;
-}
-.container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    flex-direction: row;
-}
-form {
-    border: 1px solid black;
-    padding: 1rem;
-}
-#roll {
-    height: 1rem;
-    width: 50%;
-    padding: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.button-container {
-    display: flex;
-    justify-content: center;
-}
+/* Dice */
+
 .dice-container {
     display: flex;
     justify-content: center;
-    margin: 2rem 0;
+    font-size: 3rem;
+  }
+
+  .dice {
+    cursor: pointer;
+  }
+
+.dice[data-status="locked"] {
+  color: grey !important;
 }
-.dice {
-    height: 100px;
-}
+
+/* Button */
+
+  #btn {
+    height: 2rem;
+    font-size: 1rem;
+    border-radius: 15rem;
+    animation: fontColor 1s infinite;
+  }
+  #btn[disabled="true"] {
+    background-color: gray;
+    cursor: not-allowed;
+    border: gray solid 0.2rem !important;
+    color: white !important;
+  }
+
+  #roll-dice{
+      display: flex;
+      justify-content: center;
+  }
