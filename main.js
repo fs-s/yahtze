@@ -1,63 +1,85 @@
-const diceIds = document.querySelectorAll('#dice');
-var turns = 3;
+const diceNR = document.getElementsByClassName('dice');
+const rollBTN = document.getElementById('btn');
+const diceDivs = document.querySelectorAll('.dice');
+const scoretd = document.querySelectorAll('.score');
+let count = 0;
 
-$('#roll').click(function () {
-     var cubes = $('.diceid:not(.held)');
-     cubes.each(function () {
-         roll($(this));
-     });
-     turns--;
-     $('#turns').text(turns);
-    if (turns === 0) {
-        $(this).unbind('click');
-        $(this).attr('disabled', 'disabled');
-    }
-});
 
-function roll() {
-    for (let i = 0; i < 5; i++) {
-        if( diceData[i].status == 'aktiv' ) {
-            const rng = Math.floor(Math.random() * 6) + 1;
-            document.querySelector(".dice" + i).setAttribute("src", + rng + ".png");
-        }
-    }
-}
-function selectDice() {
-    document.getElementById("dice1").innerhtml = 'held';
-}
+let diceData= [
+    {
+        value: undefined,
+        status: 'active'
+    },
+    {
+        value: undefined,
+        status: 'active'
+    },
+    {
+        value: undefined,
+        status: 'active'
+    },
+    {
+        value: undefined,
+        status: 'active'
+    },
+    {
+        value: undefined,
+        status: 'active'
 
-let diceData = [
-    {
-        value: undefined,
-        status: 'aktiv'
     },
-    {
-        value: undefined,
-        status: 'aktiv'
-    },
-    {
-        value: undefined,
-        status: 'aktiv'
-    },
-    {
-        value: undefined,
-        status: 'aktiv'
-    },
-    {
-        value: undefined,
-        status: 'aktiv'
-    }
 ]
 
-diceIds.forEach((dice) => {
-    dice.addEventListener('click', () => {
-        if (dice.dataset.status == 'aktiv'){
-            dice.dataset.status = 'lukus';
-            diceData[dice.dataset.index].status = 'lukus'
-        } else {
-            dice.dataset.status = 'aktiv';
-            diceData[dice.dataset.index].status = 'aktiv'
+
+
+diceDivs.forEach((dice) => {
+    dice.addEventListener('click', () =>{
+        if (count > 0){
+            if (dice.dataset.status == 'active'){
+                dice.dataset.status = 'locked';
+                diceData[dice.dataset.index].status = 'locked';
+             //   diceData[dice.dataset.value] = 1;
+                console.log(dice.attributes['data-index'])
+                console.log('dice data-index: ' + dice.attributes['data-index'].value)
+                diceData[dice.dataset.index].value = dice.textContent
+                console.log('dice content: ' + dice.textContent)
+
+                diceData[dice.dataset.index].value = dice.textContent
+
+                console.log('dice nr in diceData: ' + diceData[dice.dataset.index].value)
+
+            }else{
+                dice.dataset.status = 'active';
+                diceData[dice.dataset.index].status = 'active';
+                diceData[dice.dataset.index].value = undefined
+                console.log(diceData[dice.dataset.index].value)
+            }
+            console.log(diceData);
         }
-        console.log(diceData)
+    });
+});
+scoretd.forEach((score) => {
+    score.addEventListener('click', () => {
+         console.log(score.attributes['data-score-index'].value)
+         if (score.attributes['data-score-index'].value == 1){
+
+         }
+
     })
+})
+rollBTN.addEventListener('click', () => {
+    count++;
+    if (count < 4){
+        diceDivs.forEach((dice) => {
+            if (dice.dataset.status == 'active'){
+                let randomNR = Math.floor(Math.random() * 6) + 1
+                console.log(randomNR);
+                dice.innerHTML= randomNR
+            }
+        })
+    }else{
+        rollBTN.setAttribute('disabled', true);
+        let totalScore = diceData[0].value * diceData[1].value
+
+        console.log('AAAAAA' + totalScore)
+    }
 })
