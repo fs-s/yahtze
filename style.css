@@ -54,3 +54,17 @@ th[scope="col"] {
     background-color: #696969;
     color: #fff;
 }
+
+.score {
+    display: flex;
+    justify-content: center;
+    height: 1.5rem;
+    border-bottom: 0.1rem solid white
+    animation: fontColor 1s infinite;
+    cursor: pointer;
+  }
+  .score[data-score-status="locked"] {
+    cursor: not-allowed;
+    color: black !important;
+    border-bottom: 0.1rem solid black !important;
+  }
