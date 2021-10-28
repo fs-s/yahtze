@@ -44,7 +44,7 @@ function isThreeOfAKind(dices) {
         dices[3]['value'],
         dices[4]['value']
     ].sort();
-
+    console.log(value);
     if (values[0] === values[1] && values[2] === values[1] ||
         values[1] === values[2] && values[2] === values[3] ||
         values[3] === values[4] && values[4] === values[3]) {
@@ -52,7 +52,7 @@ function isThreeOfAKind(dices) {
     } else {
         console.log("pole kolmik")
     }
-    
+
 }
 
 
@@ -63,10 +63,10 @@ diceDivs.forEach((dice) => {
                 dice.dataset.status = "locked";
                 diceData[dice.dataset.index].status = "locked";
                 //   diceData[dice.dataset.value] = 1;
-                console.log(dice.attributes["data-index"]);
-                console.log("dice data-index: " + dice.attributes["data-index"].value);
+                // console.log(dice.attributes["data-index"]);
+                // console.log("dice data-index: " + dice.attributes["data-index"].value);
                 diceData[dice.dataset.index].value = dice.textContent;
-                console.log("dice content: " + dice.textContent);
+                 console.log("dice content: " + dice.textContent);
 
                 diceData[dice.dataset.index].value = dice.textContent;
 
@@ -89,8 +89,8 @@ diceDivs.forEach((dice) => {
 });
 scoretd.forEach((score) => {
     score.addEventListener("click", () => {
-        console.log(score.attributes["data-score-index"].value);
-        console.log(score.attributes["data-score-status"].value);
+        //console.log(score.attributes["data-score-index"].value);
+        //console.log(score.attributes["data-score-status"].value);
         if (score.attributes["data-score-status"].value == "active") {
             for (let i = 0; i < dices.length; i++) {
                 if (dices[i] === score.attributes["data-score-index"].value) {
@@ -115,10 +115,10 @@ scoretd.forEach((score) => {
             // scorePoints.innerHTML = scoreHoldSorted
             scorePoints.innerHTML = scoreHoldSorted;
         }
-        console.log(counter + "counterrrr");
+        //console.log(counter + "counterrrr");
 
         counter = 0;
-        console.log(counter + "counterrrr");
+        //console.log(counter + "counterrrr");
         gameReset();
     });
 });
@@ -140,12 +140,12 @@ rollBTN.addEventListener("click", () => {
         if (dice.dataset.status == "active") {
             if (roll_count < 3) {
                 let randomNR = Math.floor(Math.random() * 6) + 1;
-                console.log(randomNR);
+                //console.log(randomNR);
                 dice.innerHTML = randomNR;
             }
             if (roll_count == 3) {
                 let randomNR = Math.floor(Math.random() * 6) + 1;
-                console.log(randomNR);
+                //console.log(randomNR);
                 dice.innerHTML = randomNR;
                 rollBTN.setAttribute("disabled", true);
             }
