@@ -7,9 +7,7 @@ const diceDivs = document.querySelectorAll(".dice");
 const scoretd = document.querySelectorAll(".score");
 const scorePoints = document.getElementById("points");
 let roll_count = 0;
-let counter = 0;
 let dices = [];
-let scorePointsCount = 0;
 let scoreHoldnotSorted = [];
 let scoreHold = [];
 let diceData = [
@@ -36,7 +34,7 @@ let diceData = [
 ];
 
 
-function isThreeOfAKind(dices) {
+function getThreeOfKind(dices) {
     const values = [
         dices[0]['value'],
         dices[1]['value'],
@@ -44,7 +42,6 @@ function isThreeOfAKind(dices) {
         dices[3]['value'],
         dices[4]['value']
     ].sort();
-    console.log(value);
     if (values[0] === values[1] && values[2] === values[1] ||
         values[1] === values[2] && values[2] === values[3] ||
         values[3] === values[4] && values[4] === values[3]) {
@@ -54,6 +51,7 @@ function isThreeOfAKind(dices) {
     }
 
 }
+
 
 
 diceDivs.forEach((dice) => {
@@ -92,20 +90,24 @@ scoretd.forEach((score) => {
         //console.log(score.attributes["data-score-index"].value);
         //console.log(score.attributes["data-score-status"].value);
         if (score.attributes["data-score-status"].value == "active") {
-            for (let i = 0; i < dices.length; i++) {
-                if (dices[i] === score.attributes["data-score-index"].value) {
-                    counter++;
-                    scorePointsCount =
-                        score.attributes["data-score-index"].value * counter;
-                    score.innerHTML = scorePointsCount;
-
-                    score.attributes["data-score-status"].value = "locked";
-                    console.log(score.attributes["data-score-status"].value);
-                }
+            const scoreType = score.dataset.scoreType        
+            switch (scoreType) {
+                
+                case "threeOfKind":
+                    getThreeOfKind(diceData)
+                    break;
+                case "oneOfKind": 
+                    const index = score.dataset.scoreIndex
+                    score.innerHTML = getOneOfKind(diceData, index);
+                    break;
+            
+                default:
+                    break;
             }
+            score.dataset.status = "locked";
         }
 
-        if (counter == 0) {
+        /* if (counter == 0) {
             score.attributes["data-score-status"].value = "locked";
             score.innerHTML = 0;
             scoreHoldSorted = 0;
@@ -118,7 +120,7 @@ scoretd.forEach((score) => {
         //console.log(counter + "counterrrr");
 
         counter = 0;
-        //console.log(counter + "counterrrr");
+         *///console.log(counter + "counterrrr");
         gameReset();
     });
 });
@@ -153,3 +155,13 @@ rollBTN.addEventListener("click", () => {
     });
     console.log("count" + roll_count);
 });
+function getOneOfKind(dices, index) {
+    let counter = 0;
+    console.log(dices, index)
+    for (let i = 0; i < dices.length; i++) {
+        if (dices[i].value === index) {
+            counter++;
+        }
+    }
+    return index * counter;   
+}
